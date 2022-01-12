@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MorrTestingAssignment</string>
+    <string name="card_number">Card Number</string>
+    <string name="expiry_date">Expiry Date</string>
+    <string name="cvv">CVV</string>
+    <string name="last_name">Last Name</string>
+    <string name="first_name">First Name</string>
+    <string name="submit_payment">Submit Payment</string>
+</resources>
