@@ -21,6 +21,7 @@ public class NameValidation {
     }
 
     public static boolean validateFirstName(EditText firstName, TextView firstNameField){
+        int currentTextColor = firstName.getCurrentTextColor();
         String firstNameText = firstName.getText().toString();
         if (TextUtils.isEmpty(firstNameText)) {
             firstName.setError("Please Enter Valid Name");
@@ -35,7 +36,7 @@ public class NameValidation {
                 firstNameField.setTextSize(14);
             } else {
                 firstNameField.setText("First Name");
-                firstNameField.setTextColor(Color.parseColor("#FF000000"));
+                firstNameField.setTextColor(currentTextColor);
                 firstNameField.setTextSize(20);
                 return true;
             }
@@ -44,6 +45,7 @@ public class NameValidation {
     }
 
     public static boolean validateLastName(EditText lastName, TextView lastNameField){
+        int currentTextColor = lastName.getCurrentTextColor();
         String lastNameText = lastName.getText().toString();
         if (TextUtils.isEmpty(lastNameText)) {
             lastName.setError("Please Enter Valid Name");
@@ -58,7 +60,7 @@ public class NameValidation {
                 lastNameField.setTextSize(14);
             } else {
                 lastNameField.setText("Last Name");
-                lastNameField.setTextColor(Color.parseColor("#FF000000"));
+                lastNameField.setTextColor(currentTextColor);
                 lastNameField.setTextSize(20);
                 return true;
             }

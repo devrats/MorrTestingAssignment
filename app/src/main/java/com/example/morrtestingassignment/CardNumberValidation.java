@@ -71,6 +71,7 @@ public class CardNumberValidation {
     }
 
     public static boolean validateCard(EditText cardNumber, TextView cardNumberField){
+        int currentTextColor = cardNumber.getCurrentTextColor();
         String cardNumberText = cardNumber.getText().toString();
         if (TextUtils.isEmpty(cardNumberText)) {
             cardNumber.setError("Please Enter Valid Number");
@@ -90,7 +91,7 @@ public class CardNumberValidation {
                         CardNumberValidation.isValidAccordingMasterCard(cardNumberText)) {
                     //valid number
                     cardNumberField.setText("Card Number");
-                    cardNumberField.setTextColor(Color.parseColor("#FF000000"));
+                    cardNumberField.setTextColor(currentTextColor);
                     cardNumberField.setTextSize(20);
                     return true;
                 } else {

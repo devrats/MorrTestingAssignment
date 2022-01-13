@@ -33,6 +33,7 @@ public class ExpiryDateValidation {
     }
 
     public static boolean validateExpirationDate(EditText expiryDate, TextView expiryDateField) {
+        int currentTextColor = expiryDate.getCurrentTextColor();
         String expirationDateText = expiryDate.getText().toString();
         if (TextUtils.isEmpty(expirationDateText)) {
             expiryDate.setError("Please Enter Valid Expiry Date");
@@ -49,7 +50,7 @@ public class ExpiryDateValidation {
                 expiryDateField.setTextSize(14);
             } else {
                 expiryDateField.setText("Expiry Date");
-                expiryDateField.setTextColor(Color.parseColor("#FF000000"));
+                expiryDateField.setTextColor(currentTextColor);
                 expiryDateField.setTextSize(20);
                 return true;
             }

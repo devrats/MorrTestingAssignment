@@ -15,6 +15,7 @@ public class CVVValidation {
     }
 
     public static boolean validateCVV(EditText CVV, TextView CVVField){
+        int currentTextColor = CVV.getCurrentTextColor();
         String CVVText = CVV.getText().toString();
         if (TextUtils.isEmpty(CVVText)) {
             CVV.setError("Please Enter Valid CVV");
@@ -29,7 +30,7 @@ public class CVVValidation {
                 CVVField.setTextSize(14);
             } else {
                 CVVField.setText("CVV");
-                CVVField.setTextColor(Color.parseColor("#FF000000"));
+                CVVField.setTextColor(currentTextColor);
                 CVVField.setTextSize(20);
                 return true;
             }
