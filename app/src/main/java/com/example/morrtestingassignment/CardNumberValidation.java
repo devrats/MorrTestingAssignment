@@ -1,5 +1,10 @@
 package com.example.morrtestingassignment;
 
+import android.graphics.Color;
+import android.text.TextUtils;
+import android.widget.EditText;
+import android.widget.TextView;
+
 public class CardNumberValidation {
 
     public static boolean isValidAccordingLuhnAlgorithm(String number){
@@ -60,6 +65,40 @@ public class CardNumberValidation {
         if (number.charAt(0) == '4') {
             if (number.length() == 13 || number.length() == 16) {
                 return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean validateCard(EditText cardNumber, TextView cardNumberField){
+        String cardNumberText = cardNumber.getText().toString();
+        if (TextUtils.isEmpty(cardNumberText)) {
+            cardNumber.setError("Please Enter Valid Number");
+            cardNumberField.setText("Card Number \n(Please Enter Valid Number)");
+            cardNumberField.setTextColor(Color.parseColor("#FF0000"));
+            cardNumberField.setTextSize(14);
+        } else {
+            if (!CardNumberValidation.isValidAccordingLuhnAlgorithm(cardNumberText)) {
+                cardNumber.setError("Please Enter Valid Number");
+                cardNumberField.setText("Card Number \n(Please Enter Valid Number)");
+                cardNumberField.setTextColor(Color.parseColor("#FF0000"));
+                cardNumberField.setTextSize(14);
+            } else {
+                if (CardNumberValidation.isValidAccordingAmericanExpress(cardNumberText) ||
+                        CardNumberValidation.isValidAccordingDiscover(cardNumberText) ||
+                        CardNumberValidation.isValidAccordingVisa(cardNumberText) ||
+                        CardNumberValidation.isValidAccordingMasterCard(cardNumberText)) {
+                    //valid number
+                    cardNumberField.setText("Card Number");
+                    cardNumberField.setTextColor(Color.parseColor("#FF000000"));
+                    cardNumberField.setTextSize(20);
+                    return true;
+                } else {
+                    cardNumber.setError("Please Enter Valid Number");
+                    cardNumberField.setText("Card Number \n(Please Enter Valid Number)");
+                    cardNumberField.setTextColor(Color.parseColor("#FF000000"));
+                    cardNumberField.setTextSize(14);
+                }
             }
         }
         return false;
